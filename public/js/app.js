@@ -5601,7 +5601,10 @@ var render = function render() {
         }
       }
     })], 1)]);
-  }), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Total : ")]), _vm._v(" "), _c("td", {
+  }), _vm._v(" "), _c("tr", [_c("td", {
+    staticClass: "fw-bold"
+  }, [_vm._v("Total : ")]), _vm._v(" "), _c("td", {
+    staticClass: "fw-bold",
     attrs: {
       colspan: "4"
     }

@@ -18,8 +18,8 @@
             <td><button-component tombol="danger" nama="Delete All" class="bi bi-cart-x" @fungsiEmit="deleteAll(item.id)"></button-component></td>
         </tr>
         <tr>
-          <td>Total : </td>
-          <td colspan="4">Rp.{{ totalHarga }}</td>
+          <td class="fw-bold">Total : </td>
+          <td class="fw-bold" colspan="4">Rp.{{ totalHarga }}</td>
         </tr>
     </tbody>
 </table>
