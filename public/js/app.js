@@ -5391,6 +5391,11 @@ __webpack_require__.r(__webpack_exports__);
         window.alert("Minimal pesen dulu bang");
       }
     }
+  },
+  computed: {
+    totalHarga: function totalHarga() {
+      return this.keranjang[0].harga + this.keranjang[1].harga + this.keranjang[2].harga;
+    }
   }
 });
 
@@ -5408,7 +5413,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['produk', 'keranjang'],
+  props: ['produk', 'keranjang', 'totalHarga'],
   methods: {
     deleteItem: function deleteItem(id) {
       if (this.keranjang[id].jumlah > 0) {
@@ -5527,7 +5532,8 @@ var render = function render() {
   }), _vm._v(" "), _c("h1", [_vm._v("Keranjang Produk")]), _vm._v(" "), _c("table-checkout", {
     attrs: {
       produk: _vm.produk,
-      keranjang: _vm.keranjang
+      keranjang: _vm.keranjang,
+      totalHarga: _vm.totalHarga
     },
     on: {
       emitAdd: _vm.addProduk
@@ -5568,11 +5574,11 @@ var render = function render() {
     _c = _vm._self._c;
   return _c("table", {
     staticClass: "table table-bordered-bottom mt-1"
-  }, [_vm._m(0), _vm._v(" "), _c("tbody", _vm._l(_vm.keranjang, function (item) {
+  }, [_vm._m(0), _vm._v(" "), _c("tbody", [_vm._l(_vm.keranjang, function (item) {
     return _c("tr", {
       key: item,
       staticClass: "mb-3"
-    }, [_c("td", [_vm._v(_vm._s(item.nama))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(item.jumlah))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(item.harga))]), _vm._v(" "), _c("td", [_c("button-component", {
+    }, [_c("td", [_vm._v(_vm._s(item.nama))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(item.jumlah))]), _vm._v(" "), _c("td", [_vm._v("Rp." + _vm._s(item.harga))]), _vm._v(" "), _c("td", [_c("button-component", {
       staticClass: "bi bi-cart-dash",
       attrs: {
         tombol: "warning",
@@ -5595,7 +5601,11 @@ var render = function render() {
         }
       }
     })], 1)]);
-  }), 0)]);
+  }), _vm._v(" "), _c("tr", [_c("td", [_vm._v("Total : ")]), _vm._v(" "), _c("td", {
+    attrs: {
+      colspan: "4"
+    }
+  }, [_vm._v("Rp." + _vm._s(_vm.totalHarga))])])], 2)]);
 };
 var staticRenderFns = [function () {
   var _vm = this,

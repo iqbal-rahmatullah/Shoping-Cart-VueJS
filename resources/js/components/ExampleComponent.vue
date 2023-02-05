@@ -3,7 +3,7 @@
         <h1>Semua Produk</h1>
         <table-component :produk="produk" :keranjang="keranjang"></table-component>
         <h1>Keranjang Produk</h1>
-        <table-checkout :produk="produk" :keranjang="keranjang" @emitAdd="addProduk"></table-checkout>
+        <table-checkout :produk="produk" :keranjang="keranjang" :totalHarga="totalHarga" @emitAdd="addProduk"></table-checkout>
         <button-component tombol="success mb-4" nama="Checkout" class="bi bi-cart-check-fill" @fungsiEmit="succesCheckout()"></button-component>
     </div>
 </template>
@@ -72,6 +72,11 @@
                 }else{
                     window.alert("Minimal pesen dulu bang")
                 }
+            }
+        },
+        computed: {
+            totalHarga : function(){
+                return this.keranjang[0].harga + this.keranjang[1].harga + this.keranjang[2].harga
             }
         }
     }

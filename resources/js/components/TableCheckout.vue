@@ -13,9 +13,13 @@
         <tr v-for="item in keranjang" :key="item" class="mb-3">
             <td>{{ item.nama }}</td>
             <td>{{ item.jumlah }}</td>
-            <td>{{ item.harga }}</td>
+            <td>Rp.{{ item.harga }}</td>
             <td><button-component tombol="warning" nama="-1" class="bi bi-cart-dash" @fungsiEmit="deleteItem(item.id)"></button-component></td>
             <td><button-component tombol="danger" nama="Delete All" class="bi bi-cart-x" @fungsiEmit="deleteAll(item.id)"></button-component></td>
+        </tr>
+        <tr>
+          <td>Total : </td>
+          <td colspan="4">Rp.{{ totalHarga }}</td>
         </tr>
     </tbody>
 </table>
@@ -23,7 +27,7 @@
 
 <script>
 export default {
-    props: ['produk', 'keranjang'],
+    props: ['produk', 'keranjang', 'totalHarga'],
     methods: {
         deleteItem(id){
             if(this.keranjang[id].jumlah > 0){
